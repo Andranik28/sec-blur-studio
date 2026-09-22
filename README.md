@@ -8,7 +8,7 @@ An enterprise-grade, high-security image privacy obfuscation utility featuring z
 
 You do **not** need to install Python, configure libraries, or use command terminals to run this application. A standalone, portable Windows version is compiled and available for immediate deploy.
 
-1. Navigate to the **[Releases]([https://github.com](https://github.com/Andranik28/sec-blur-studio/releases/tag/v1.0.0))** tab on the right side of this repository page.
+1. Navigate to the **[Releases](https://github.com/Andranik28/sec-blur-studio/releases)** tab on the right side of this repository page.
 2. Download the latest compiled package binary: `Secure_Blur_Studio_Pro.exe`.
 3. Double-click the downloaded artifact to launch the Secure Obfuscation workspace instantly.
 
