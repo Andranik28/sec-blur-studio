@@ -6,7 +6,7 @@ An enterprise-grade, high-security image privacy obfuscation utility featuring z
 
 ```bash
 # Clone the architecture
-git clone https://github.com
+git clone https://github.com/Andranik28/sec-blur-studio.git
 cd sec-blur-studio
 
 # Setup parameters
