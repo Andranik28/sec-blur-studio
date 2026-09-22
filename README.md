@@ -1,7 +1,4 @@
 # sec-blur-studio
-[![Security Status](https://shields.io)](https://wikipedia.org)
-[![License: MIT](https://shields.io)](https://opensource.org)
-[![Platform Version](https://shields.io)](#-quick-start-for-end-users-portable-exe)
 
 An enterprise-grade, high-security image privacy obfuscation utility featuring zero-trace local execution, anti-AI reconstruction pipelines, cryptographic steganography, and automated metadata forensic decoupling. Designed specifically for privacy advocates, investigative journalists, and operational security operators.
 
@@ -11,7 +8,7 @@ An enterprise-grade, high-security image privacy obfuscation utility featuring z
 
 You do **not** need to install Python, configure libraries, or use command terminals to run this application. A standalone, portable Windows version is compiled and available for immediate deploy.
 
-1. Navigate to the **[Releases](https://github.com)** tab on the right side of this repository page.
+1. Navigate to the **[Releases]([https://github.com](https://github.com/Andranik28/sec-blur-studio/releases/tag/v1.0.0))** tab on the right side of this repository page.
 2. Download the latest compiled package binary: `Secure_Blur_Studio_Pro.exe`.
 3. Double-click the downloaded artifact to launch the Secure Obfuscation workspace instantly.
 
@@ -53,7 +50,7 @@ Modern deep learning neural networks can reverse standard Gaussian Blurs by trac
 
 ### 3. Forensic Metadata Decoupling
 Digital image formats contain extensive tracking arrays including camera hardware identifiers, timestamps, and application signature chunks (`tEXt Software: PIL/OpenCV`).
-* **Our Solution:** The deep-strip action isolates pure uncompressed surface pixel matrices and completely reconstructs a sterile image container from scratch, discarding all traces of origination or modifications history.
+* **Our Solution:** The deep-strip action isolates pure uncompressed sur pixel matrices and completely reconstructs a sterile image container from scratch, discarding all traces of origination or modifications history.
 
 ---
 
