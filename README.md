@@ -53,6 +53,7 @@ sec-blur-studio/
 │   └── src/                  # Implementation files (secblur.cpp, main.cpp)
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Project documentation
+```
 
 ---
 
