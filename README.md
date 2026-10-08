@@ -10,7 +10,7 @@
 
 ## 📌 Table of Contents
 - [Overview](#-overview)
-- [Methodology](#-methodology)
+- [Methodology](#%EF%B8%8F-methodology)
 - [Repository Structure](#-repository-structure)
 - [Requirements & Installation](#-requirements--installation)
 - [Dataset Information](#-dataset-information)
@@ -146,7 +146,7 @@ If you use this code in your research, please cite:
 ```bibtex
 @article{secblurstudio2026,
   title     = {Reversible Image Privacy Protection via Selective Blurring and Reversible Data Hiding},
-  author    = {Andranik and Contributors},
+  author    = {Andranik Karakhanyan},
   journal   = {GitHub Repository},
   year      = {2026},
   url       = {[https://github.com/Andranik28/sec-blur-studio](https://github.com/Andranik28/sec-blur-studio)}
