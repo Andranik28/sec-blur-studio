@@ -126,13 +126,32 @@ make
 
 ## 📈 Experimental Results
 
-| Metric | Typical Range | Description |
-| :--- | :--- | :--- |
-| **PSNR (dB)** | $> 40 \text{ dB}$ | Peak Signal-to-Noise Ratio (restored vs original). |
-| **SSIM** | $> 0.98$ | Structural Similarity Index Measure. |
-| **Execution Time** | $< 20 \text{ ms}$ (C++) | Average per-image processing latency. |
-| **Steganalysis** | $\approx 50\%$ | Detection rate by statistical steganalysis. |
+The proposed method was evaluated on **100 images** from the Labeled Faces in the Wild (LFW) dataset and **5 images** from the USC-SIPI database across kernel sizes ranging from 10% to 90% of the region's smaller dimension.
 
+### Performance Overview
+
+| Metric | Published Value | Description / Statistics |
+| :--- | :--- | :--- |
+| **Restoration Quality** | **PSNR = ∞ dB**, **SSIM = 1.0** | Bit-perfect, mathematically lossless recovery using correct password. |
+| **Embedding Capacity** | **3.0 bpp** | Total capacity of 67,500 bits for a 150 × 150 region (~63,724 bits payload utilized). |
+| **Compression Ratio** | **8.1:1 – 8.9:1** | Lossless predictive coding (lowest single image: 7.2:1). $F(4, 396) = 87.42$, $p < 0.001$, $\eta^2 = 0.469$. |
+| **Embedding Feasibility** | **100%** | Zero embedding failures across all tested images and kernel sizes. |
+| **Embedding Time** | **4.2 ms** (SD = 0.31 ms) | Evaluated on Intel Core i7-10700 with 10-run averaging. |
+| **Restoration Time** | **3.8 ms** (SD = 0.27 ms) | Significantly faster than embedding ($t(9) = 6.84$, $p < 0.001$, $d = 1.37$). |
+| **Steganalysis Detection** | **0% Detection Rate** | 0% false positive rate across StegSpy, VSL, and StegSecret detectors. |
+
+---
+
+### Obfuscation Thresholds
+
+* **10% – 30% Kernel Sizes:** Facial features remain partially discernible or recognizable despite quantization.
+* **50% – 90% Kernel Sizes:** Facial landmarks fall below spatial resolution limits, achieving effective anonymization and structural unrecognizability.
+
+### Obfuscation Thresholds
+
+* **10% – 30% Kernel Sizes:** Facial features remain partially discernible or recognizable despite quantization[cite: 2].
+* **50% – 90% Kernel Sizes:** Facial landmarks fall below spatial resolution limits, achieving effective anonymization and structural unrecognizability[cite: 2].
+* 
 To reproduce these metrics in Python:
 ```bash
 python scripts/evaluate_all.py --config configs/config.yaml
