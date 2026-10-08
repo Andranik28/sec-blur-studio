@@ -54,6 +54,8 @@ sec-blur-studio/
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Project documentation
 
+---
+
 ## 💻 Requirements & Installation
 
 ### Python Environment
