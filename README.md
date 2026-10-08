@@ -147,11 +147,6 @@ The proposed method was evaluated on **100 images** from the Labeled Faces in th
 * **10% – 30% Kernel Sizes:** Facial features remain partially discernible or recognizable despite quantization.
 * **50% – 90% Kernel Sizes:** Facial landmarks fall below spatial resolution limits, achieving effective anonymization and structural unrecognizability.
 
-### Obfuscation Thresholds
-
-* **10% – 30% Kernel Sizes:** Facial features remain partially discernible or recognizable despite quantization[cite: 2].
-* **50% – 90% Kernel Sizes:** Facial landmarks fall below spatial resolution limits, achieving effective anonymization and structural unrecognizability[cite: 2].
-* 
 To reproduce these metrics in Python:
 ```bash
 python scripts/evaluate_all.py --config configs/config.yaml
