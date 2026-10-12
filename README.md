@@ -73,7 +73,7 @@ sec-blur-studio/
 
 For users who want to run the framework instantly without configuring a Python or C++ development environment, a pre-compiled, standalone portable executable is available.
 
-[![Download Executive]([https://shields.io](https://shields.io/badge/Download-Secure_Blur_Studio_Portable-blue?style=for-the-badge&logo=windows))](https://github.com)
+[![Download Executive]([https://shields.io](https://shields.io/badge/Download-Secure_Blur_Studio_Portable-blue?style=for-the-badge&logo=windows))]
 
 > 💡 **Note:** This portable version includes the core image and document obfuscation tools ready out-of-the-box. For the latest builds, visit the [Releases page]([https://github.com](https://github.com/Andranik28/sec-blur-studio/releases)).
 
