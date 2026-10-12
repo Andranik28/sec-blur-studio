@@ -35,6 +35,7 @@ In addition to visual image blurring, the repository includes the official imple
 
 ## ⚙️ Methodology
 
+### 1. Facial / Image Blurring Pipeline
 1. **Embedding & Obfuscation**: Detects the sensitive Region of Interest (ROI), extracts its details, and applies a parameter-controlled Gaussian/Selective Blur. The original ROI details are encrypted and embedded into the image using Least Significant Bit (LSB) or Reversible Data Hiding (RDH).
 2. **Extraction & Restoration**: Reads the authenticated stego-bits, decompresses the original ROI, and reconstructs the unblurred image.
 
@@ -88,11 +89,12 @@ pip install -r requirements.txt
 ---
 
 ## 📊 Dataset Information
+## 📊 Dataset Information
 
 1. **Labeled Faces in the Wild (LFW)**: Download from [Kaggle](https://www.kaggle.com/datasets/jessicali9530/lfw-dataset) and place in `datasets/lfw/`.
 2. **USC-SIPI Image Database**: Download from [USC-SIPI](https://sipi.usc.edu/database/) and place in `datasets/usc_sipi/`.
-
----
+3. **Tobacco800 Document Image Database**: Download public scans from [Tobacco800 Repository](https://www.industrydocuments.ucsf.edu/) and place in `datasets/tobacco800/`. Pre-annotated ground-truth bounding boxes are provided in `datasets/tobacco800/annotations.json`.
+4. **RVL-CDIP Corpus**: Download grayscale forms/letters from the [RVL-CDIP Dataset](https://www.cs.cmu.edu/~aharley/rvl-cdip/) and place in `datasets/rvl_cdip/`.
 
 ## 🚀 Usage Instructions (Python)
 
@@ -136,9 +138,9 @@ make
 
 ## 📈 Experimental Results
 
-The proposed method was evaluated on **100 images** from the Labeled Faces in the Wild (LFW) dataset and **5 images** from the USC-SIPI database across kernel sizes ranging from 10% to 90% of the region's smaller dimension.
+### 1. Facial Image Blurring Benchmarks
 
-### Performance Overview
+Evaluated on **100 images** from the LFW dataset and **5 images** from the USC-SIPI database across kernel sizes ranging from 10% to 90% of the region's smaller dimension.
 
 | Metric | Published Value | Description / Statistics |
 | :--- | :--- | :--- |
@@ -150,17 +152,29 @@ The proposed method was evaluated on **100 images** from the Labeled Faces in th
 | **Restoration Time** | **3.8 ms** (SD = 0.27 ms) | Significantly faster than embedding ($t(9) = 6.84$, $p < 0.001$, $d = 1.37$). |
 | **Steganalysis Detection** | **0% Detection Rate** | 0% false positive rate across StegSpy, VSL, and StegSecret detectors. |
 
+#### Obfuscation Thresholds
+- **10% – 30% Kernel Sizes:** Facial features remain partially discernible or recognizable despite quantization.
+- **50% – 90% Kernel Sizes:** Facial landmarks fall below spatial resolution limits, achieving effective anonymization and structural unrecognizability.
+
 ---
 
-### Obfuscation Thresholds
+### 2. Document Redaction (RCO Paper Benchmarks)
 
-* **10% – 30% Kernel Sizes:** Facial features remain partially discernible or recognizable despite quantization.
-* **50% – 90% Kernel Sizes:** Facial landmarks fall below spatial resolution limits, achieving effective anonymization and structural unrecognizability.
+Evaluated across **Tobacco800**, **RVL-CDIP**, **Synthetic**, and **Real Colour** document datasets ($n = 6,000$ trials):
 
-To reproduce these metrics in Python:
-```bash
-python scripts/evaluate_all.py --config configs/config.yaml
-```
+| Metric / Evaluation | Published Result [95% CI] | Statistical / Method Details |
+| :--- | :--- | :--- |
+| **Forensic Recovery Rate** | **0%** (RCO) vs **>90%** (Overlay) | Contrast Enhancement (AHE + Contrast Stretch), $p < 0.001$, Cohen's $d = 4.82$. |
+| **Global Quality (PSNR)** | **> 50.7 dB** [50.1, 51.3] | Imperceptible embedding distortion across all datasets. |
+| **Non-Obfuscated PSNR** | **> 57.9 dB** [57.2, 58.6] | Isolated background embedding fidelity. |
+| **Structural Similarity (SSIM)**| **> 0.997** [0.996, 0.998] | Global and non-obfuscated SSIM. |
+| **RS Steganalysis** | **$p = 0.71$** (Mann-Whitney U) | No statistically significant difference between clean cover and RCO stego. |
+| **SRNet Deep Steganalysis** | **EER = 0.488** [0.471, 0.505] | AUC = 0.51 (chance-level discrimination). |
+| **Restoration Accuracy** | **100% Bit-Perfect** | Bit-identical reconstruction across all 6,000 lossless (PNG) trials. |
+| **Processing Speed** | **< 1.5 seconds / page** | End-to-end timing on standard desktop hardware (Intel i7-10700K). |
+| **Peak Memory Usage** | **< 85 MB** | Lightweight operational memory footprint. |
+
+---
 
 ---
 
