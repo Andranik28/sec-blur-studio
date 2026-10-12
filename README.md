@@ -38,6 +38,13 @@ In addition to visual image blurring, the repository includes the official imple
 1. **Embedding & Obfuscation**: Detects the sensitive Region of Interest (ROI), extracts its details, and applies a parameter-controlled Gaussian/Selective Blur. The original ROI details are encrypted and embedded into the image using Least Significant Bit (LSB) or Reversible Data Hiding (RDH).
 2. **Extraction & Restoration**: Reads the authenticated stego-bits, decompresses the original ROI, and reconstructs the unblurred image.
 
+### 2. Document Redaction (RCO Pipeline)
+1. **Background Estimation & Foreground Masking**: Estimates local paper colour $C_b$ from a 1-pixel boundary around selected region $R$. Computes a binary mask $F(p)$ using noise tolerance threshold $\tau = 10$.
+2. **Payload Preparation & Encryption**: Compresses $F(p)$ via RLE, appends SHA-256 hash integrity check, and encrypts payload using **AES-256-CBC** with PBKDF2 key derivation (600,000 iterations).
+3. **Solid-Colour Obfuscation**: Overwrites $R$ with $C_b$, physically destroying visible confidential information and rendering it immune to forensic contrast manipulation.
+4. **PEHS Steganographic Embedding**: Embeds encrypted payload into non-obfuscated background pixels using Prediction-Error Histogram Shifting, yielding an imperceptible stego document ($\text{PSNR} > 50\text{ dB}$).
+5. **Bit-Perfect Restoration**: Extracts payload, decrypts AES-256 ciphertext, verifies SHA-256 integrity, and restores original foreground pixels with 100% accuracy under lossless formats (PNG/TIFF).
+
 ---
 
 ## 📂 Repository Structure
