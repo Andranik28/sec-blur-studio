@@ -30,6 +30,7 @@ Authorized users can extract the payload and fully restore the original image; u
 
 ### 📄 Document Redaction Module (RCO Framework)
 In addition to visual image blurring, the repository includes the official implementation of **Reversible Colour Obfuscation (RCO)** specifically designed for digital document redaction (scanned forms, administrative records, healthcare/financial documents). RCO combines AES-256 encryption, background-aware solid-colour replacement (defeating contrast-enhancement forensic attacks with a 0% recovery rate), and Prediction-Error Histogram Shifting (PEHS) steganography for self-contained, bit-perfect restoration.
+
 ---
 
 ## ⚙️ Methodology
