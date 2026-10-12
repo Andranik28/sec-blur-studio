@@ -89,7 +89,6 @@ pip install -r requirements.txt
 ---
 
 ## 📊 Dataset Information
-## 📊 Dataset Information
 
 1. **Labeled Faces in the Wild (LFW)**: Download from [Kaggle](https://www.kaggle.com/datasets/jessicali9530/lfw-dataset) and place in `datasets/lfw/`.
 2. **USC-SIPI Image Database**: Download from [USC-SIPI](https://sipi.usc.edu/database/) and place in `datasets/usc_sipi/`.
